@@ -1,2 +1,2 @@
-Nouns: Person, Bike, Station.
-Werbs: Docking, Release, Working.
+Nouns:  Person, Bike, Docking station.
+Werbs:  Release, Working.
