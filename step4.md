@@ -1,6 +1,6 @@
 Type of error: Uninitialized constant (DockingStation)
 
-The file path where error happened: /users/frankiebell/.rvm/rubies/ruby-2.3.1/bin/irb:11:in 
+The file path where error happened: /users/frankiebell/.rvm/rubies/ruby-2.3.1/bin/irb:11:in <main>
 
 Line number of error: Line 1
 
