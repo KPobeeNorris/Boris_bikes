@@ -1,4 +1,4 @@
-require './lib/docking_station_class.rb'
+require './lib/docking_station.rb'
 require './lib/bike.rb'
 
 describe DockingStation do
@@ -40,6 +40,14 @@ describe DockingStation do
     expect(docking_station.bikes.length).to eq 0
   end
 
+  it 'can be initialized with a capacity' do
+    docking_station = DockingStation.new(30)
+    expect(docking_station.capacity).to eq 30
+  end
+  it 'has a default capacity equal to DEFAULT_CAPACITY' do
+    docking_station = DockingStation.new
+    expect(docking_station.capacity).to eq 20
+  end
 end
 
 =begin
