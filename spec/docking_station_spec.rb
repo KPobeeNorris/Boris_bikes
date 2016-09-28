@@ -5,7 +5,7 @@ describe DockingStation do
   describe 'process to release bike' do
     it 'DockingStation to return new instance of Bike class' do
       docking_station = DockingStation.new
-      docking_station.dock_bike
+      docking_station.dock_bike(Bike.new)
       bike = docking_station.release_bike
       expect(bike.class).to eq Bike
     end
@@ -16,16 +16,16 @@ describe DockingStation do
   end
 
   describe 'process of accepting bikes' do
-    it 'DockingStation doesn\'t accept new bike if bike already docked' do
+    it 'DockingStation doesn\'t accept new bike if docking station is full' do
       docking_station = DockingStation.new
-      docking_station.dock_bike
-      expect {docking_station.dock_bike}.to raise_error "Too many bikes!"
+      20.times {docking_station.dock_bike(Bike.new)}
+      expect {docking_station.dock_bike(Bike.new)}.to raise_error "Too many bikes!"
     end
   end
 
   it 'DockingStation expects bike to be working?' do
     docking_station = DockingStation.new
-    docking_station.dock_bike
+    docking_station.dock_bike(Bike.new)
     bike = docking_station.release_bike
     expect(bike.working?).to eq true
   end

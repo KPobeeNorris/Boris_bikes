@@ -14,14 +14,14 @@ class DockingStation
     end
 	end
 
-	def dock_bike
-		if @bikes == 0
+	def dock_bike(bike)
+		if @bikes < 20
 			@bikes += 1
 		else
 			raise "Too many bikes!"
 		end
 	end
 
-	
+
 
 end
