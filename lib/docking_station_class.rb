@@ -2,12 +2,14 @@ require './lib/bike.rb'
 
 class DockingStation
   attr_reader :bikes
+	DEFAULT_CAPACITY = 20
+
   def initialize
 		@bikes = []
 	end
 
 	def release_bike
-    if !empty?
+    unless empty?
       Bike.new
     else
       raise "There are no bikes"
@@ -15,7 +17,7 @@ class DockingStation
 	end
 
 	def dock_bike(bike)
-		if !full?
+		unless full?
 			@bikes << bike
 		else
 			raise "Too many bikes!"
@@ -25,7 +27,7 @@ class DockingStation
 private
 
   def full?
-    @bikes.length == 20
+    @bikes.length == DEFAULT_CAPACITY
   end
 
   def empty?

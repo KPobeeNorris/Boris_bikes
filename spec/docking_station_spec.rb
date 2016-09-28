@@ -18,7 +18,7 @@ describe DockingStation do
   describe 'process of accepting bikes' do
     it 'DockingStation doesn\'t accept new bike if docking station is full' do
       docking_station = DockingStation.new
-      20.times {docking_station.dock_bike(Bike.new)}
+      DockingStation::DEFAULT_CAPACITY.times {docking_station.dock_bike(Bike.new)}
       expect {docking_station.dock_bike(Bike.new)}.to raise_error "Too many bikes!"
     end
   end
