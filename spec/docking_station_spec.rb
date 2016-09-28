@@ -14,6 +14,18 @@ describe DockingStation do
 
   it { is_expected.to respond_to :release_bike }
 
+  it { is_expected.to respond_to :dock_bike }
+
+  it 'can show number of bikes docked' do
+    expect(docking_station.bikes).to eq 0
+  end
+
+  describe '#dock_bike' do
+    it 'increases @bikes by 1' do
+      docking_station.dock_bike
+      expect(docking_station.bikes).to eq 1
+    end
+  end
 
 end
 
