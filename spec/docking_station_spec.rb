@@ -14,7 +14,15 @@ describe DockingStation do
       expect {docking_station.release_bike}.to raise_error "There are no bikes"
     end
   end
-  
+
+  describe 'process of accepting bikes' do
+    it 'DockingStation doesn\'t accept new bike if bike already docked' do
+      docking_station = DockingStation.new
+      docking_station.dock_bike
+      expect {docking_station.dock_bike}.to raise_error "Too many bikes!"
+    end
+  end
+
   it 'DockingStation expects bike to be working?' do
     docking_station = DockingStation.new
     docking_station.dock_bike
