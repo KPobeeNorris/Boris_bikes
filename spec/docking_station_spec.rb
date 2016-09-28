@@ -2,33 +2,37 @@ require './lib/docking_station_class.rb'
 require './lib/bike.rb'
 
 describe DockingStation do
-  docking_station = DockingStation.new
-  bike = docking_station.release_bike
-  it 'DockingStation to return new instance of Bike class' do
-    expect(bike.class).to eq Bike
+  describe 'process to release bike' do
+    it 'DockingStation to return new instance of Bike class' do
+      docking_station = DockingStation.new
+      docking_station.dock_bike
+      bike = docking_station.release_bike
+      expect(bike.class).to eq Bike
+    end
+    it 'raises an error if there are no bikes' do
+      docking_station = DockingStation.new
+      expect {docking_station.release_bike}.to raise_error "There are no bikes"
+    end
   end
-
+  
   it 'DockingStation expects bike to be working?' do
+    docking_station = DockingStation.new
+    docking_station.dock_bike
+    bike = docking_station.release_bike
     expect(bike.working?).to eq true
   end
 
   it { is_expected.to respond_to :release_bike }
 
+
   it { is_expected.to respond_to :dock_bike }
 
   it 'can show number of bikes docked' do
+    docking_station = DockingStation.new
     expect(docking_station.bikes).to eq 0
   end
 
-  describe '#dock_bike' do
-    it 'increases @bikes by 1' do
-      docking_station.dock_bike
-      expect(docking_station.bikes).to eq 1
-    end
-  end
-
 end
-
 
 =begin
 

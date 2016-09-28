@@ -1,3 +1,5 @@
+require './lib/bike.rb'
+
 class DockingStation
   attr_reader :bikes
   def initialize
@@ -5,7 +7,11 @@ class DockingStation
 	end
 
 	def release_bike
-		Bike.new
+    if @bikes > 0
+      Bike.new
+    else
+      raise "There are no bikes"
+    end
 	end
 
 	def dock_bike
