@@ -3,11 +3,11 @@ require './lib/bike.rb'
 class DockingStation
   attr_reader :bikes
   def initialize
-		@bikes = 0
+		@bikes = []
 	end
 
 	def release_bike
-    if @bikes > 0
+    if @bikes.length > 0
       Bike.new
     else
       raise "There are no bikes"
@@ -15,8 +15,8 @@ class DockingStation
 	end
 
 	def dock_bike(bike)
-		if @bikes < 20
-			@bikes += 1
+		if @bikes.length < 20
+			@bikes << bike
 		else
 			raise "Too many bikes!"
 		end

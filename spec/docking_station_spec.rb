@@ -37,7 +37,7 @@ describe DockingStation do
 
   it 'can show number of bikes docked' do
     docking_station = DockingStation.new
-    expect(docking_station.bikes).to eq 0
+    expect(docking_station.bikes.length).to eq 0
   end
 
 end
